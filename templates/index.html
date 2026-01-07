@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Risk Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Security Risk Assessment Tool</h2>
+
+    <form method="post">
+        {% for control in ["Strong Passwords","Regular Backups","Antivirus Installed","Firewall Enabled","OS Updated"] %}
+            <div class="control">
+                <label>{{ control }}</label>
+                <select name="{{ control }}">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+        {% endfor %}
+        <button type="submit">Assess Risk</button>
+    </form>
+
+    {% if result %}
+        <div class="result {{ result[1]|lower }}">
+            <h3>Risk Score: {{ result[0]|round(2) }}%</h3>
+            <h3>Risk Level: {{ result[1] }}</h3>
+
+            <h4>Failed Controls:</h4>
+            <ul>
+                {% for item in failed %}
+                    <li>
+                        <strong>{{ item[0] }}</strong><br>
+                        Risk Value: {{ item[1] }}<br>
+                        ISO 27001: {{ item[2] }}<br>
+                        NIST: {{ item[3] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

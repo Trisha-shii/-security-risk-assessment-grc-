@@ -1,0 +1,6 @@
+Control,Likelihood,Impact,ISO27001,NIST
+Strong Passwords,3,5,A.9 Access Control,IA-5 Authenticator Management
+Regular Backups,4,5,A.12 Operations Security,CP-9 System Backup
+Antivirus Installed,3,4,A.12 Malware Protection,SI-3 Malicious Code Protection
+Firewall Enabled,3,4,A.13 Network Security,SC-7 Boundary Protection
+OS Updated,4,5,A.12 Vulnerability Management,SI-2 Flaw Remediation
